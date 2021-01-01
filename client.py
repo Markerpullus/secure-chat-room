@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = socket.gethostname()
         print(f'Trying to connect to server {self.server_ip}:{self.server_port} from {self.host}...')
-        self.socket.connect((self.server_ip, self.server_port))
+        self.socket.connect((self.server_ip, int(self.server_port)))
         self.socket.send(self.username.encode())
         print('Connected')
         print('Encrypting traffic...')
